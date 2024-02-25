@@ -20,3 +20,11 @@ connection = pymysql.connect(
 )
 
 print('connected')
+
+cursor = connection.cursor()
+cursor.execute("Select * from _PickPic_Log_Magok")
+data = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+# print(column_names)
+
+dataset = pd.DataFrame(data, columns=column_names)
