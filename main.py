@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
     page_title="Main")
 
-st.title("OTACO TEST")
+st.title("OTACO")
 
 connection = pymysql.connect(
     host=config.host,
