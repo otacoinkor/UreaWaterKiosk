@@ -2,4 +2,4 @@
 
 import streamlit as st
 
-st.write("OTACO TEST")
+st.title("OTACO TEST")
