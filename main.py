@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
     page_title="Main")
 
-st.title("OTACO")
+st.title("UreaWater Kiosk Manager")
 
 connection = pymysql.connect(
     host=config.host,
