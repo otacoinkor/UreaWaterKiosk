@@ -5,7 +5,6 @@ import pandas as pd
 import pymysql
 import config
 
-
 st.set_page_config(
     layout="wide",
     page_title="Main")
