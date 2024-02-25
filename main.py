@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
     page_title="Main")
 
-st.title("요소수 키오스크 매니저 ")
+st.title("요소수 키오스크 매니저")
 
 connection = pymysql.connect(
     host=config.host,
