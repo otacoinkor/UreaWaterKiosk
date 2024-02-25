@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-import pymysql
+# import pymysql
 import config
 
 st.set_page_config(
@@ -11,6 +11,7 @@ st.set_page_config(
 
 st.title("요소수 키오스크 매니저")
 
+'''
 connection = pymysql.connect(
     host=config.host,
     user=config.user,
@@ -26,4 +27,4 @@ data = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
 # print(column_names)
 
-dataset = pd.DataFrame(data, columns=column_names)
+dataset = pd.DataFrame(data, columns=column_names)'''
