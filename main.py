@@ -35,7 +35,7 @@ column_names = [desc[0] for desc in cursor.description]
 
 dataset = pd.DataFrame(data, columns=column_names)
 
-st.title('판매현항')
+st.write('판매현항')
 
 top_menu = st.columns(3)
 with top_menu[0]:
