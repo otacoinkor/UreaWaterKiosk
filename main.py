@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
     page_title="Main")
 
-st.title("요소수 키오스크 관리자 페이지")
+st.title("요소수 키오스크 페이지")
 
 connection = pymysql.connect(
     host=config.host,
