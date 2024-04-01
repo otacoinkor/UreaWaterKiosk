@@ -55,7 +55,7 @@ if sort == "Yes":
     )
 # endregion
 
-pagination = st.container()
+pagination = st.container()  # 테이블 표시
 
 # region 바닥 메뉴
 bottom_menu = st.columns((4, 1, 1))
@@ -82,7 +82,6 @@ with edit_menu[0]:
     line_to_edit = st.selectbox("Select Line to Edit", options=dataset['kiosk_id'].tolist())
 with edit_menu[1]:
     field_to_edit = st.selectbox("Select Field to Edit", options=column_names)
-
 # 수정할 값을 입력하는 위젯 추가
 with edit_menu[2]:
     new_value = st.text_input("Enter New Value")
@@ -97,3 +96,4 @@ if st.button("Submit Changes"):
     # 변경사항을 데이터베이스에 반영합니다.
     connection.commit()
     st.write("Changes submitted.")
+
