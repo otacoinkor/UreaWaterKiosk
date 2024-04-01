@@ -18,6 +18,7 @@ st.set_page_config(
 
 st.title("요소수 키오스크 페이지")
 
+# region DB 연결 및 조회
 connection = pymysql.connect(
     host=config.host,
     user=config.user,
@@ -31,12 +32,14 @@ cursor = connection.cursor()
 cursor.execute("Select * from _PickPic_Log_Magok")
 data = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
-# print(column_names)
+print(column_names)
+# endregion
 
-dataset = pd.DataFrame(data, columns=column_names)
+dataset = pd.DataFrame(data, columns=column_names)  # DB 조회해서 column_names 하고 data 가져옴
 
 st.write('판매현항')
 
+# region 탑 메뉴
 top_menu = st.columns(3)
 with top_menu[0]:
     sort = st.radio("Sort Data", options=["Yes", "No"], horizontal=1, index=1)
@@ -50,8 +53,9 @@ if sort == "Yes":
     dataset = dataset.sort_values(
         by=sort_field, ascending=sort_direction == "⬆️", ignore_index=True
     )
-pagination = st.container()
+# endregion
 
+# region 바닥 메뉴
 bottom_menu = st.columns((4, 1, 1))
 with bottom_menu[2]:
     batch_size = st.selectbox("Page Size", options=[25, 50, 100])
@@ -65,6 +69,9 @@ with bottom_menu[1]:
 with bottom_menu[0]:
     st.markdown(f"Page **{current_page}** of **{total_pages}** ")
 
+# endregion
+
+pagination = st.container()
 pages = split_frame(dataset, batch_size)
 pagination.dataframe(data=pages[current_page - 1], use_container_width=True)
 
