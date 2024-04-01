@@ -55,6 +55,8 @@ if sort == "Yes":
     )
 # endregion
 
+pagination = st.container()
+
 # region 바닥 메뉴
 bottom_menu = st.columns((4, 1, 1))
 with bottom_menu[2]:
@@ -71,7 +73,6 @@ with bottom_menu[0]:
 
 # endregion
 
-pagination = st.container()
 pages = split_frame(dataset, batch_size)
 pagination.dataframe(data=pages[current_page - 1], use_container_width=True)
 
